@@ -1,6 +1,6 @@
 var crypto = require('crypto')
 const zlib = require('zlib')
-const APP_ID_LENGTH = 32
+const APP_ID_LENGTH = 22
 
 const getVersion = () => {
     return "001"
@@ -118,7 +118,6 @@ class AccessToken {
         if (!this.__build_check()) {
             return ""
         }
-
         let signing = this.__signing()
         let signing_info = new ByteBuf().putString(this.appId)
             .putUint32(this.issueTs)
